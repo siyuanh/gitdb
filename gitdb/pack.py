@@ -1023,8 +1023,8 @@ class PackEntity(LazyMixin):
         os.close(index_fd)
 
         fmt = "pack-%s.%s"
-        new_pack_path = os.path.join(base_dir, fmt % (bin_to_hex(pack_binsha), 'pack'))
-        new_index_path = os.path.join(base_dir, fmt % (bin_to_hex(pack_binsha), 'idx'))
+        new_pack_path = os.path.join(base_dir, fmt % (bin_to_hex(pack_binsha).decode('ascii'), 'pack'))
+        new_index_path = os.path.join(base_dir, fmt % (bin_to_hex(pack_binsha).decode('ascii'), 'idx'))
         os.rename(pack_path, new_pack_path)
         os.rename(index_path, new_index_path)
 
